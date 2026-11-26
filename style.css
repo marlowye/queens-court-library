@@ -966,3 +966,50 @@ a {
     font-size: 9px;
   }
 }
+.librarian-letter {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 1.9;
+}
+
+.librarian-letter p {
+  margin-bottom: 22px;
+}
+
+.librarian-letter .letter-greeting {
+  color: var(--gold);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+.librarian-letter .letter-opening {
+  font-style: italic;
+}
+
+.librarian-letter strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.librarian-letter em {
+  color: var(--gold);
+}
+
+.letter-signature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 35px;
+  color: var(--gold);
+}
+
+.letter-signature span {
+  font-style: italic;
+}
+
+.letter-signature strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+}
