@@ -1013,3 +1013,62 @@ a {
   font-family: "Cormorant Garamond", serif;
   font-size: 1.5rem;
 }
+
+/* EXPANDABLE LORE ARCHIVES */
+
+.lore-archives {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 35px;
+}
+
+.lore-archives details {
+  border: 1px solid rgba(198, 164, 107, 0.28);
+  background: rgba(69, 28, 37, 0.18);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.lore-archives details[open] {
+  background: rgba(69, 28, 37, 0.32);
+  border-color: rgba(198, 164, 107, 0.55);
+}
+
+.lore-archives summary {
+  padding: 18px 22px;
+  color: #c6a46b;
+  font-family: inherit;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.lore-archives summary::-webkit-details-marker {
+  display: none;
+}
+
+.lore-archives summary::after {
+  content: "+";
+  font-size: 1.2rem;
+  color: #c6a46b;
+}
+
+.lore-archives details[open] summary::after {
+  content: "−";
+}
+
+.lore-archives summary:hover {
+  color: #e0c28c;
+}
+
+.archive-content {
+  padding: 0 22px 20px;
+  color: #d2c1aa;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
