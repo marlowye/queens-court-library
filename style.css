@@ -1135,3 +1135,111 @@ a {
   box-shadow: 0 3px 12px rgba(180, 150, 120, 0.18);
   opacity: 1;
 }
+
+
+/* PLACES SECTION */
+
+.places-section {
+  max-width: 900px;
+  margin: 45px auto;
+  padding: 10px;
+}
+
+.places-section h3 {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.places-subtitle {
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
+
+/* GRID */
+
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px 20px;
+}
+
+/* INDIVIDUAL PLACE */
+
+.place-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+}
+
+/* IMAGE */
+
+.place-image {
+  flex: 0 0 115px;
+  height: 135px;
+  overflow: hidden;
+}
+
+.place-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.place-card:hover .place-image img {
+  transform: scale(1.09) translateY(-3px);
+}
+
+/* TEXT */
+
+.place-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.place-info h4 {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+.place-info p {
+  font-size: 10px;
+  line-height: 1.7;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.place-symbol {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 7px;
+  opacity: 0.65;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .places-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .place-image {
+    flex-basis: 105px;
+    height: 120px;
+  }
+}
+
