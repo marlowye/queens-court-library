@@ -1091,3 +1091,42 @@ a {
 .lore-archives details[open] summary::before {
   content: "♛" !important;
 }
+
+.themes-section {
+  margin: 30px auto;
+  text-align: center;
+  max-width: 650px;
+}
+
+.themes-section h3 {
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  opacity: 0.75;
+}
+
+.theme-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.theme-tags span {
+  display: inline-block;
+  padding: 7px 13px;
+  border: 1px solid currentColor;
+  border-radius: 30px;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.theme-tags span:hover {
+  opacity: 1;
+  background: currentColor;
+  color: var(--background);
+}
