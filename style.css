@@ -1092,6 +1092,7 @@ a {
   content: "♛" !important;
 }
 
+
 .themes-section {
   margin: 30px auto;
   text-align: center;
@@ -1122,11 +1123,15 @@ a {
   font-size: 10px;
   letter-spacing: 0.8px;
   opacity: 0.8;
-  transition: all 0.3s ease;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .theme-tags span:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 12px rgba(180, 150, 120, 0.18);
   opacity: 1;
-  background: currentColor;
-  color: var(--background);
 }
