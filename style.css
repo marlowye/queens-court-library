@@ -1072,3 +1072,35 @@ a {
   line-height: 1.8;
   font-size: 0.95rem;
 }
+
+
+.lore-archives summary {
+  gap: 14px;
+}
+
+.lore-archives summary::before {
+  content: "✧";
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border: 1px solid rgba(198, 164, 107, 0.55);
+  border-radius: 50%;
+  background: rgba(105, 25, 32, 0.25);
+  color: #c6a46b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.lore-archives details[open] summary::before {
+  content: "♛";
+  background: rgba(105, 25, 32, 0.5);
+  transform: rotate(10deg);
+  border-color: #c6a46b;
+}
+
+.lore-archives summary::after {
+  margin-left: auto;
+}
