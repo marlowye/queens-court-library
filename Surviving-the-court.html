@@ -1,113 +1,123 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Surviving the Court | The Royal Library</title>
+  <meta name="theme-color" content="#190b10">
+  <meta name="description" content="A guide for those who dare to enter the Queen's Court.">
+  <title>Surviving the Court — The Royal Library</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
+  <div class="page-frame">
 
-<main class="royal-page">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-symbol">♛</span>
+        <span>QUEEN'S COURT</span>
+      </a>
 
-  <header class="royal-header">
-    <span class="royal-eyebrow">THE ROYAL LIBRARY · VISITOR'S HANDBOOK</span>
-    <h1>Surviving the Court</h1>
-    <p>A guide for those foolish enough to enter.</p>
-    <span class="royal-ornament">♠ ✦ ♥</span>
-  </header>
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Toggle navigation" aria-expanded="false">
+        ☰
+      </button>
 
-  <nav class="royal-navigation">
-    <a href="index.html">The Library</a>
-    <a href="about.html">About the Queen</a>
-    <a href="surviving-the-court.html" class="current">Surviving the Court</a>
-  </nav>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#collections">Collections</a>
+        <a href="index.html#about">The Library</a>
+        <a href="surviving-the-court.html">Surviving the Court</a>
+        <a href="https://janitorai.com/profiles/26d31e8e-4937-4b23-85c8-9aed5fa2b027_profile-of-marlowye"
+          target="_blank" rel="noopener noreferrer">The Court</a>
+        <a href="about.html">About the Queen</a>
+      </nav>
+    </header>
 
-  <section class="royal-section">
-    <span class="royal-label">A WORD BEFORE ENTERING</span>
-    <h2>Dear visitor, consider yourself warned.</h2>
+    <main>
 
-    <div class="royal-letter">
-      <span class="letter-mark">♛</span>
+      <section class="hero">
+        <div class="hero-ornament">♜</div>
+        <p class="eyebrow">A GUIDE FOR THE CURIOUS AND THE FOOLISH</p>
 
-      <p class="letter-placeholder">
-        The Queen is writing a new letter...
-      </p>
+        <h1>Surviving the <span>Court</span></h1>
 
-      <p class="placeholder-note">
-        The rules, warnings and peculiar customs of this Court
-        are still being recorded.
-      </p>
+        <div class="ornamental-divider">
+          <span></span> ♛ <span></span>
+        </div>
 
-      <span class="royal-signature">Marlowe</span>
-    </div>
-  </section>
+        <p class="hero-description">
+          Every court has its rules.
+          This one simply has a rather peculiar Queen.
+        </p>
 
-  <div class="royal-divider">✧ ───── ❦ ───── ✧</div>
+        <p class="hero-footnote">READ CAREFULLY · PROCEED AT YOUR OWN RISK</p>
+      </section>
 
-  <section class="royal-section">
-    <span class="royal-label">01 / THE FIRST STEPS</span>
-    <h2>How to navigate the Court.</h2>
+      <section class="intro-section">
+        <div class="section-heading">
+          <span class="eyebrow">01 / A WORD OF WARNING</span>
+          <h2>Welcome to the <em>Court</em></h2>
+        </div>
 
-    <div class="royal-placeholder-card">
-      <p>The Queen is writing a new letter...</p>
-      <span>Guidance for exploring the Library and discovering its collections.</span>
-    </div>
-  </section>
+        <p class="intro-copy">
+          The Queen is writing a new letter...
+        </p>
 
-  <section class="royal-section">
-    <span class="royal-label">02 / THE INHABITANTS</span>
-    <h2>Know whom you are dealing with.</h2>
+        <p class="intro-copy muted-copy">
+          A proper introduction to the Court will be available
+          once Her Majesty has decided what deserves to be revealed.
+        </p>
+      </section>
 
-    <div class="royal-placeholder-card">
-      <p>The Queen is writing a new letter...</p>
-      <span>Information about the characters, their personalities, histories and worlds.</span>
-    </div>
-  </section>
+      <section class="collections-section">
+        <div class="section-heading">
+          <span class="eyebrow">02 / THE UNWRITTEN RULES</span>
+          <h2>Rules of the <em>Kingdom</em></h2>
+          <p>Some advice for those entering the Queen's domain.</p>
+        </div>
 
-  <section class="royal-section">
-    <span class="royal-label">03 / ROLEPLAY ETIQUETTE</span>
-    <h2>Words have consequences, darling.</h2>
+        <p class="intro-copy">
+          The Queen is writing a new letter...
+        </p>
+      </section>
 
-    <div class="royal-placeholder-card">
-      <p>The Queen is writing a new letter...</p>
-      <span>Roleplay explanations, interaction guidelines and useful recommendations.</span>
-    </div>
-  </section>
+      <section class="intro-section">
+        <div class="section-heading">
+          <span class="eyebrow">03 / KNOW YOUR SURROUNDINGS</span>
+          <h2>Who resides within the <em>Court?</em></h2>
+        </div>
 
-  <section class="royal-section">
-    <span class="royal-label">04 / CONTENT WARNINGS</span>
-    <h2>Not every tale is meant to be gentle.</h2>
+        <p class="intro-copy">
+          The Queen is writing a new letter...
+        </p>
 
-    <div class="royal-placeholder-card">
-      <p>The Queen is writing a new letter...</p>
-      <span>Warnings and information about potentially disturbing fictional themes.</span>
-    </div>
-  </section>
+        <p class="intro-copy muted-copy">
+          Characters, stories, peculiar personalities and
+          other inhabitants of this rather unusual kingdom.
+        </p>
+      </section>
 
-  <section class="royal-section">
-    <span class="royal-label">05 / THE FINAL WARNING</span>
-    <h2>Should you still wish to remain...</h2>
+      <section class="archive-note">
+        <span class="eyebrow">A FINAL WORD FROM HER MAJESTY</span>
+        <p>
+          Curiosity may bring you here.
+          Whether it gets you out is an entirely different matter.
+        </p>
+        <span class="signature">— The Queen ♛</span>
+      </section>
 
-    <div class="royal-letter final-warning">
-      <p class="letter-placeholder">
-        The Queen is writing a new letter...
-      </p>
-      <p class="placeholder-note">
-        Some doors are better left unopened. But where would be the fun in that?
-      </p>
-    </div>
-  </section>
+    </main>
 
-  <footer class="royal-footer">
-    <span>THE ROYAL LIBRARY</span>
-    <p>May your curiosity be greater than your fear.</p>
-    <a href="index.html">Return to the Library ♛</a>
-  </footer>
+    <footer class="site-footer">
+      <div class="footer-symbol">♛</div>
+      <p>THE ROYAL LIBRARY</p>
+      <span>One kingdom. Countless stories. Very questionable decisions.</span>
+      <small>© <span id="currentYear"></span> MARLOWYE · ALL RIGHTS RESERVED</small>
+    </footer>
 
-</main>
-
+  </div>
 </body>
 </html>
-
