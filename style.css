@@ -1334,3 +1334,8 @@ a {
 .series-cover.moon-cover {
   background: linear-gradient(145deg, #283040 0%, #241017 75%) !important;
 }
+
+
+.intro-section p {
+  text-align: center;
+}
