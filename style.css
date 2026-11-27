@@ -1302,3 +1302,23 @@ a {
 .survival-note a:hover {
   opacity: 0.65;
 }
+
+/* Soft fade-in effect */
+.series-hero {
+  animation: softFadeIn 1.6s ease-out both;
+}
+
+@keyframes softFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .series-hero {
+    animation: none;
+  }
+}
