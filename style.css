@@ -1269,3 +1269,36 @@ a {
     padding: 20px 16px;
   }
 }
+
+.survival-note {
+  text-align: center;
+  margin: 22px auto 35px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.survival-note span {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.survival-note p {
+  font-size: 16px;
+  font-style: italic;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.survival-note a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity .3s ease;
+}
+
+.survival-note a:hover {
+  opacity: 0.65;
+}
