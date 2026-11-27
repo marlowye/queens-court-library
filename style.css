@@ -1326,8 +1326,14 @@ a {
 }
 
     
-/* Moonlit Chronicles — individual cover */
-.moonlit-cover {
+
+/* MOONLIT CHRONICLES — INDIVIDUAL COVER */
+
+.series-cover.moon-cover {
   background: linear-gradient(145deg, #25212c, #0c0b10);
+  border-color: var(--antique-gold);
 }
 
+.moon-cover .series-cover-placeholder {
+  border-color: rgba(198, 164, 107, 0.3);
+}
