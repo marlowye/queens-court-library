@@ -1326,3 +1326,8 @@ a {
 }
 
     
+/* Moonlit Chronicles — individual cover */
+.moonlit-cover {
+  background: linear-gradient(145deg, #25212c, #0c0b10);
+}
+
