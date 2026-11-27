@@ -1303,22 +1303,19 @@ a {
   opacity: 0.65;
 }
 
-/* Soft fade-in effect */
+
 .series-hero {
-  animation: softFadeIn 1.6s ease-out both;
+  animation: reveal 1.8s ease-out both;
 }
 
-@keyframes softFadeIn {
+@keyframes reveal {
   from {
     opacity: 0;
+    filter: blur(8px);
   }
   to {
     opacity: 1;
+    filter: blur(0);
   }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .series-hero {
-    animation: none;
-  }
-}
+    
