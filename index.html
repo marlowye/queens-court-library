@@ -227,14 +227,9 @@
         DISMISS TRANSMISSION
       </button>
 
-     <p
-  id="royal-error-warning"
-  data-text="ERROR: THIS MESSAGE WAS NOT WRITTEN BY THE ROYAL GUARD."
->
-  ERROR: THIS MESSAGE WAS NOT WRITTEN BY THE ROYAL GUARD.
+    <p id="royal-error" data-text="CONNECTION ERROR — FILE CORRUPTED">
+  CONNECTION ERROR — FILE CORRUPTED
 </p>
-    </div>
-  </div>
 </div>
 
 <style>
@@ -629,74 +624,6 @@
   }
 }
   
-/* ROYAL ASSISTANCE — UNAUTHORIZED MESSAGE */
-
-#royal-error-warning {
-  display: inline-block;
-  position: relative;
-  animation: warningGlitch 2.5s infinite steps(1, end);
-}
-
-#royal-error-warning::before,
-#royal-error-warning::after {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  pointer-events: none;
-}
-
-#royal-error-warning::before {
-  color: #a65b55;
-  animation: warningSlice 1.8s infinite steps(2, end);
-}
-
-#royal-error-warning::after {
-  color: #80694f;
-  animation: warningSliceReverse 2.2s infinite steps(2, end);
-}
-
-@keyframes warningGlitch {
-  0%, 88%, 100% { transform: translate(0); }
-  89% { transform: translate(-3px, 1px); }
-  90% { transform: translate(3px, -1px); }
-  91% { transform: translate(-2px, 0); }
-  92% { transform: translate(0); }
-  96% { transform: translate(2px, 1px); }
-  97% { transform: translate(0); }
-}
-
-@keyframes warningSlice {
-  0%, 100% {
-    clip-path: inset(0 0 100% 0);
-    transform: translateX(0);
-  }
-  30% {
-    clip-path: inset(15% 0 65% 0);
-    transform: translateX(4px);
-  }
-  60% {
-    clip-path: inset(55% 0 25% 0);
-    transform: translateX(-4px);
-  }
-}
-
-@keyframes warningSliceReverse {
-  0%, 100% {
-    clip-path: inset(100% 0 0 0);
-    transform: translateX(0);
-  }
-  40% {
-    clip-path: inset(65% 0 10% 0);
-    transform: translateX(-4px);
-  }
-  70% {
-    clip-path: inset(25% 0 55% 0);
-    transform: translateX(4px);
-  }
-}
-
-
 </style>
 
 <script>
