@@ -402,6 +402,534 @@
   }, 12000);
 })();
 </script>
+  <!-- ROYAL EMERGENCY PROTOCOL -->
+
+<div id="royal-protocol">
+  <button id="royal-call" type="button">
+    <span class="royal-call-symbol">♜</span>
+    CALL THE ROYAL GUARD
+  </button>
+
+  <div id="royal-overlay" aria-hidden="true">
+    <div id="royal-window" role="dialog" aria-modal="true"
+         aria-labelledby="royal-title">
+
+      <div class="royal-window-top">
+        <span>ROYAL LIBRARY // INTERNAL SYSTEM</span>
+        <span class="royal-status">UNSTABLE</span>
+      </div>
+
+      <div class="royal-window-heading">
+        <span class="royal-emblem">♜</span>
+        <h2 id="royal-title">ROYAL ASSISTANCE</h2>
+        <p class="royal-loading">The guards are being summoned...</p>
+        <span id="royal-connection">
+  ∙ Connection established
+</span>
+      </div>
+
+      <div class="royal-divider"></div>
+
+      <div class="royal-file-label">
+        RECOVERED INSTRUCTIONS
+        <span id="royal-file-number">FILE 001</span>
+      </div>
+
+      <div id="royal-message"></div>
+
+      <div class="royal-window-bottom">
+        <span>DO NOT DISTRIBUTE THIS FILE</span>
+        <span id="royal-timestamp">UNKNOWN TIME</span>
+      </div>
+
+      <button id="royal-close" type="button">
+        DISMISS TRANSMISSION
+      </button>
+
+    <p id="royal-error-warning">
+        ERROR: THIS MESSAGE WAS NOT WRITTEN BY THE ROYAL GUARD.
+      </p>
+</div>
+
+<style>
+/* ROYAL EMERGENCY PROTOCOL */
+
+#royal-call {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9998;
+
+  padding: 10px 13px;
+  background: #211a19;
+  color: #d5c3a5;
+  border: 1px solid rgba(190, 155, 115, .45);
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+
+  opacity: .78;
+  transition: .3s ease;
+}
+
+#royal-call:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, .35);
+}
+
+.royal-call-symbol {
+  margin-right: 7px;
+  color: #b99b72;
+}
+
+/* OVERLAY */
+
+#royal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+  background: rgba(5, 5, 7, .82);
+  backdrop-filter: blur(5px);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .45s ease, visibility .45s ease;
+}
+
+#royal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* WINDOW */
+
+#royal-window {
+  width: 100%;
+  max-width: 480px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+
+  padding: 25px;
+
+  background: #171619;
+  color: #d4c9bc;
+  border: 1px solid rgba(183, 148, 108, .45);
+  box-shadow: 0 0 40px rgba(0, 0, 0, .65);
+
+  transform: translateY(20px) scale(.97);
+  transition: transform .45s ease;
+
+  font-family: 'Cormorant Garamond', serif;
+}
+
+#royal-overlay.active #royal-window {
+  transform: translateY(0) scale(1);
+}
+
+.royal-window-top,
+.royal-window-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  font-family: monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #84796f;
+}
+
+.royal-status {
+  color: #a66a61;
+}
+
+.royal-window-heading {
+  text-align: center;
+  padding: 25px 0 18px;
+}
+
+.royal-emblem {
+  display: block;
+  font-size: 30px;
+  color: #b99b72;
+  margin-bottom: 10px;
+}
+
+.royal-window-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #d2b68f;
+  margin: 0 0 10px;
+}
+
+.royal-loading {
+  font-size: 14px;
+  font-style: italic;
+  color: #998d80;
+}
+
+.royal-connected {
+  display: none;
+  font-family: monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #8eaa87;
+}
+
+#royal-overlay.connected .royal-loading {
+  display: none;
+}
+
+#royal-overlay.connected .royal-connected {
+  display: block;
+}
+
+.royal-divider {
+  height: 1px;
+  background: rgba(183, 148, 108, .25);
+  margin: 12px 0 18px;
+}
+
+.royal-file-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 18px;
+
+  font-family: monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #a68c6e;
+}
+
+#royal-message {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.royal-instruction {
+  margin: 0;
+  padding-left: 12px;
+  border-left: 1px solid rgba(183, 148, 108, .4);
+
+  font-size: 16px;
+  line-height: 1.65;
+  color: #d3c8bd;
+
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: royalTextReveal .6s ease forwards;
+}
+
+@keyframes royalTextReveal {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.royal-window-bottom {
+  border-top: 1px solid rgba(183, 148, 108, .2);
+  padding-top: 16px;
+  margin-top: 25px;
+  color: #966d65;
+}
+
+#royal-close {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 11px;
+
+  background: transparent;
+  border: 1px solid rgba(183, 148, 108, .35);
+  color: #b99b72;
+
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+#royal-close:hover {
+  background: rgba(183, 148, 108, .1);
+  border-color: #b99b72;
+}
+
+.royal-error {
+  display: none;
+  margin: 16px 0 0;
+  color: #a66a61;
+  font-family: monospace;
+  font-size: 9px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: .5px;
+}
+
+#royal-overlay.show-error .royal-error {
+  display: block;
+  animation: royalTextReveal .7s ease both;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  #royal-call {
+    bottom: 12px;
+    left: 12px;
+    font-size: 10px;
+  }
+
+  #royal-window {
+    padding: 20px;
+  }
+
+  .royal-window-heading h2 {
+    font-size: 18px;
+  }
+
+  .royal-instruction {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #royal-overlay,
+  #royal-window,
+  #royal-call {
+    transition: none;
+  }
+
+  .royal-instruction {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+  
+/* ROYAL ASSISTANCE - CUSTOM SCROLLBAR */
+
+#royal-window {
+  scrollbar-width: thin;
+  scrollbar-color: #80694f #171619;
+}
+
+#royal-window::-webkit-scrollbar {
+  width: 5px;
+}
+
+#royal-window::-webkit-scrollbar-track {
+  background: #171619;
+}
+
+#royal-window::-webkit-scrollbar-thumb {
+  background: #80694f;
+  border-radius: 10px;
+}
+
+#royal-window::-webkit-scrollbar-thumb:hover {
+  background: #b99b72;
+}
+  
+
+#royal-error-warning {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+  font-family: monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 1px;
+  color: #a65b55 !important;
+  animation: royalWarningGlitch 2s infinite !important;
+}
+
+@keyframes royalWarningGlitch {
+  0%, 88%, 100% {
+    transform: translateX(0);
+    opacity: 1;
+    text-shadow: none;
+  }
+  90% {
+    transform: translateX(-2px);
+    text-shadow: 2px 0 #d16b63;
+  }
+  92% {
+    transform: translateX(2px);
+    text-shadow: -2px 0 #80694f;
+  }
+  94% {
+    transform: translateX(-1px);
+    text-shadow: 1px 0 #d16b63;
+  }
+  96% {
+    transform: translateX(0);
+    text-shadow: none;
+  }
+}
+
+
+
+/* ROYAL ASSISTANCE — CONNECTION STATUS */
+
+#royal-connection {
+   color: #8caa79;
+  animation: connectionPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes connectionPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+  
+</style>
+
+<script>
+(function () {
+  const callButton = document.getElementById('royal-call');
+  const overlay = document.getElementById('royal-overlay');
+  const closeButton = document.getElementById('royal-close');
+  const messageBox = document.getElementById('royal-message');
+  const fileNumber = document.getElementById('royal-file-number');
+  const timestamp = document.getElementById('royal-timestamp');
+
+  if (!callButton || !overlay || !closeButton || !messageBox) return;
+
+  const transmissions = [
+    {
+      number: 'FILE 001',
+      messages: [
+        'If you have taken something belonging to one of the inhabitants, return it without making any sudden movements.',
+        "If you find the priest's Bible filled with photographs of young girls, burn the photographs. Do not return the Bible.",
+        'If someone knocks three times and introduces themselves as a member of the Ashford family, do not open the door.',
+        'If the guards arrive before you finish reading this message, pretend you never called.'
+      ],
+      error: true
+    },
+    {
+      number: 'FILE 002',
+      messages: [
+        "If the lights inside Crowley's antique shop turn on by themselves, leave the street.",
+        'Do not follow the sound of a child laughing through the alleys of Moonlit.',
+        'If a Fletcher offers you a drink without asking your name, accept it. Refusing might be more suspicious.',
+        'Should you see someone standing at the end of the street, do not wave. They might wave back.'
+      ],
+      error: false
+    },
+    {
+      number: 'FILE 003',
+      messages: [
+        'If you hear someone crying inside Beaumont Church after midnight, do not investigate. The church is supposed to be empty.',
+        'Never accept a drink from a Whitmore. They have a peculiar understanding of hospitality.',
+        'If an Ashcroft asks you to keep a secret, remember that their family has already kept too many.',
+        'Do not ask the Queen how she knows your name.'
+      ],
+      error: true
+    },
+    {
+      number: 'FILE 004',
+      messages: [
+        'If you find a door that was not there yesterday, do not try the handle.',
+        'Should you encounter a woman in a white dress in the streets of Moonlit, do not ask her where she is going. She is not lost.',
+        'If your reflection moves before you do, look away.',
+        'The Royal Guard has no record of sending this transmission.'
+      ],
+      error: true
+    }
+  ];
+
+  let active = false;
+  let previousFile = -1;
+  let openingTimer;
+  let errorTimer;
+
+  function openProtocol() {
+    if (active) return;
+
+    active = true;
+    clearTimeout(openingTimer);
+    clearTimeout(errorTimer);
+
+    let index;
+    do {
+      index = Math.floor(Math.random() * transmissions.length);
+    } while (index === previousFile && transmissions.length > 1);
+
+    previousFile = index;
+    const file = transmissions[index];
+
+    messageBox.innerHTML = '';
+    fileNumber.textContent = file.number;
+    timestamp.textContent = 'TIME: ' + new Date().toLocaleTimeString();
+
+    overlay.classList.remove('connected', 'show-error');
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+
+    callButton.textContent = 'SUMMONING...';
+
+    openingTimer = setTimeout(() => {
+      overlay.classList.add('connected');
+
+      file.messages.forEach((message, i) => {
+        const paragraph = document.createElement('p');
+        paragraph.className = 'royal-instruction';
+        paragraph.textContent = '> ' + message;
+        paragraph.style.animationDelay = (i * 0.55) + 's';
+        messageBox.appendChild(paragraph);
+      });
+
+      if (file.error) {
+        errorTimer = setTimeout(() => {
+          overlay.classList.add('show-error');
+        }, 3200);
+      }
+
+      callButton.textContent = 'CALL THE ROYAL GUARD';
+    }, 1400);
+  }
+
+  function closeProtocol() {
+    active = false;
+    clearTimeout(openingTimer);
+    clearTimeout(errorTimer);
+
+    overlay.classList.remove('active', 'connected', 'show-error');
+    overlay.setAttribute('aria-hidden', 'true');
+    callButton.textContent = 'CALL THE ROYAL GUARD';
+  }
+
+  callButton.addEventListener('click', openProtocol);
+  closeButton.addEventListener('click', closeProtocol);
+
+  overlay.addEventListener('click', function (event) {
+    if (event.target === overlay) closeProtocol();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && active) closeProtocol();
+  });
+})();
+</script>
 </body>
 </html>
 
