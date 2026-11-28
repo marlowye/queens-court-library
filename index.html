@@ -526,6 +526,88 @@
 #royal-window::-webkit-scrollbar-thumb:hover {
   background: #b99b72;
 }
+  
+/* ROYAL ASSISTANCE — GLITCH ERROR */
+
+#royal-error {
+  position: relative;
+  display: inline-block;
+  color: #a65b55;
+  animation: errorFlicker 2.8s infinite;
+}
+
+#royal-error::before,
+#royal-error::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#royal-error::before {
+  color: #c58b82;
+  animation: glitchTop 1.7s infinite steps(2, end);
+}
+
+#royal-error::after {
+  color: #80694f;
+  animation: glitchBottom 2.2s infinite steps(2, end);
+}
+
+@keyframes errorFlicker {
+  0%, 18%, 22%, 62%, 64%, 100% {
+    opacity: 1;
+  }
+  20%, 63% {
+    opacity: .35;
+  }
+  21% {
+    opacity: .8;
+  }
+  65% {
+    opacity: .15;
+  }
+}
+
+@keyframes glitchTop {
+  0%, 85%, 100% {
+    clip-path: inset(0 0 100% 0);
+    transform: translateX(0);
+  }
+  86% {
+    clip-path: inset(10% 0 65% 0);
+    transform: translateX(-3px);
+  }
+  88% {
+    clip-path: inset(40% 0 35% 0);
+    transform: translateX(3px);
+  }
+  90% {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+@keyframes glitchBottom {
+  0%, 72%, 100% {
+    clip-path: inset(100% 0 0 0);
+    transform: translateX(0);
+  }
+  74% {
+    clip-path: inset(65% 0 10% 0);
+    transform: translateX(3px);
+  }
+  76% {
+    clip-path: inset(35% 0 40% 0);
+    transform: translateX(-3px);
+  }
+  78% {
+    clip-path: inset(100% 0 0 0);
+  }
+}
+
 </style>
 
 <script>
