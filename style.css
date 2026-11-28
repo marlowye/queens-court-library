@@ -1528,3 +1528,37 @@ a {
     transform: none;
   }
 }
+
+/* =================================
+   ROYAL LIBRARY — CUSTOM SCROLLBAR
+================================= */
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #80694f #171619;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #171619;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #80694f;
+  border: 1px solid #171619;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b99b72;
+}
+
+/* Horizontal scrollbar */
+::-webkit-scrollbar:horizontal {
+  height: 7px;
+}
