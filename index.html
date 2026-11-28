@@ -711,5 +711,177 @@
   });
 })();
 </script>
+    
+<!-- THE QUEEN IS WATCHING -->
+
+<div id="queen-notification">
+  <div class="queen-notification-header">
+    <span class="queen-crown">♛</span>
+    <span>HER MAJESTY</span>
+    <span class="queen-notification-time">JUST NOW</span>
+  </div>
+
+  <div class="queen-notification-title">
+    THE QUEEN IS WATCHING.
+  </div>
+
+  <p id="queen-notification-message"></p>
+
+  <div class="queen-notification-footer">
+    ROYAL NOTICE No. 001
+  </div>
+</div>
+
+<style>
+#queen-notification {
+  position: fixed;
+  top: 20px;
+  right: 22px;
+  width: 290px;
+  max-width: calc(100vw - 40px);
+  box-sizing: border-box;
+  padding: 15px 17px;
+  background: rgba(23, 22, 25, 0.97);
+  border: 1px solid rgba(185, 155, 114, 0.35);
+  color: #d0c4b3;
+  z-index: 99999;
+  opacity: 0;
+  transform: translateY(-130%);
+  pointer-events: none;
+}
+
+#queen-notification.show {
+  animation: queenSlideIn 0.65s ease forwards;
+  pointer-events: auto;
+}
+
+#queen-notification.hide {
+  animation: queenSlideOut 0.6s ease forwards;
+}
+
+.queen-notification-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #b99b72;
+}
+
+.queen-crown {
+  font-size: 14px;
+}
+
+.queen-notification-time {
+  margin-left: auto;
+  color: #77716c;
+  font-size: 8px;
+}
+
+.queen-notification-title {
+  margin-top: 13px;
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #d0c4b3;
+}
+
+#queen-notification-message {
+  margin: 8px 0 13px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #b9b1a7;
+}
+
+.queen-notification-footer {
+  padding-top: 8px;
+  border-top: 1px solid rgba(185, 155, 114, 0.2);
+  text-align: right;
+  font-family: monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #77716c;
+}
+
+@keyframes queenSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-130%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes queenSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-30%);
+  }
+}
+
+@media (max-width: 600px) {
+  #queen-notification {
+    top: 12px;
+    right: 12px;
+  }
+}
+</style>
+
+<script>
+(function () {
+  const notification = document.getElementById('queen-notification');
+  const message = document.getElementById('queen-notification-message');
+
+  if (!notification || !message) return;
+
+  const messages = [
+    "Her Majesty has noticed your presence.",
+    "You have been reading this record for quite some time.",
+    "That was not meant for your eyes.",
+    "The Queen advises you to leave this page.",
+    "Someone has been looking for you.",
+    "Do mind your manners. You are being watched.",
+    "Curiosity has always been a rather dangerous habit."
+  ];
+
+  let previousMessage = -1;
+
+  function showNotification() {
+    let index;
+
+    do {
+      index = Math.floor(Math.random() * messages.length);
+    } while (index === previousMessage);
+
+    previousMessage = index;
+    message.textContent = messages[index];
+
+    notification.classList.remove('hide', 'show');
+    void notification.offsetWidth;
+    notification.classList.add('show');
+
+    setTimeout(() => {
+      notification.classList.remove('show');
+      notification.classList.add('hide');
+    }, 5500);
+  }
+
+  setTimeout(() => {
+    showNotification();
+
+    setInterval(() => {
+      showNotification();
+    }, 35000 + Math.random() * 15000);
+  }, 12000);
+})();
+</script>
 </body>
 </html>
