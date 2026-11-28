@@ -227,9 +227,9 @@
         DISMISS TRANSMISSION
       </button>
 
-    <p id="royal-error" data-text="CONNECTION ERROR — FILE CORRUPTED">
-  CONNECTION ERROR — FILE CORRUPTED
-</p>
+    <p class="royal-error" id="royal-error">
+        ERROR: THIS MESSAGE WAS NOT WRITTEN BY THE ROYAL GUARD.
+      </p>
 </div>
 
 <style>
@@ -528,83 +528,23 @@
 }
   
 
-/* ROYAL ASSISTANCE — CONTINUOUS GLITCH */
+/* ROYAL ASSISTANCE — SYSTEM WARNING */
 
-#royal-error {
-  position: relative;
+#royal-error-warning {
   display: inline-block;
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
   color: #a65b55;
-  animation: errorFlicker 1.8s infinite;
+  animation: errorFlicker 2.5s infinite, subtleGlitch 3s infinite;
 }
 
-#royal-error::before,
-#royal-error::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-#royal-error::before {
-  color: #c58b82;
-  animation: glitchTop .8s infinite;
-}
-
-#royal-error::after {
-  color: #80694f;
-  animation: glitchBottom 1.1s infinite;
-}
-
-@keyframes errorFlicker {
-  0%, 100% { opacity: 1; }
-  10% { opacity: .4; }
-  12% { opacity: 1; }
-  45% { opacity: .7; }
-  47% { opacity: .2; }
-  49% { opacity: 1; }
-  80% { opacity: .5; }
-  82% { opacity: 1; }
-}
-
-@keyframes glitchTop {
-  0%, 100% {
-    clip-path: inset(0 0 100% 0);
-    transform: translateX(0);
-  }
-  20% {
-    clip-path: inset(15% 0 65% 0);
-    transform: translateX(-3px);
-  }
-  40% {
-    clip-path: inset(45% 0 35% 0);
-    transform: translateX(3px);
-  }
-  60% {
-    clip-path: inset(70% 0 10% 0);
-    transform: translateX(-2px);
-  }
-}
-
-@keyframes glitchBottom {
-  0%, 100% {
-    clip-path: inset(100% 0 0 0);
-    transform: translateX(0);
-  }
-  25% {
-    clip-path: inset(65% 0 15% 0);
-    transform: translateX(3px);
-  }
-  50% {
-    clip-path: inset(35% 0 45% 0);
-    transform: translateX(-3px);
-  }
-  75% {
-    clip-path: inset(10% 0 70% 0);
-    transform: translateX(2px);
-  }
+@keyframes subtleGlitch {
+  0%, 90%, 100% { transform: translateX(0); }
+  92% { transform: translateX(-2px); }
+  94% { transform: translateX(2px); }
+  96% { transform: translateX(-1px); }
+  98% { transform: translateX(0); }
 }
 
 
